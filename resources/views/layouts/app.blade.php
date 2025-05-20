@@ -123,7 +123,9 @@
 
     /* Default (Desktop and larger) */
     .logo-img {
-        width: 8rem;
+        width: 8.5rem;
+        border-radius: 50%;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.45);
     }
 
     .project-title {
@@ -191,7 +193,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark  p-0">
         <div class="container">
             <a class="navbar-brand text-dark d-flex  align-items-center" href="#">
-                <img src="{{ asset('navbar/Logo.png') }}" alt="Logo" class="logo-img me-2">
+                <img src="{{ asset('navbar/Logo_Banrukpasa2.jpg') }}" alt="Logo" class="logo-img me-2">
                 <div class="d-flex flex-column">
                     <div class="project-title">โปรเจ็คติวเตอร์</div>
                     <div class="project-subtitle">ระบบจองรายคอร์สเรียนพิเศษ</div>
@@ -237,7 +239,7 @@
 
     {{-- Bottom Navbar: แสดงเฉพาะบนมือถือ --}}
     <div class="bottom-nav d-lg-none">
-        <a href="#">
+        <a href="{{route('Home')}}">
             <i class="fas fa-home"></i>
             หน้าหลัก
         </a>
@@ -268,7 +270,7 @@
                 @endguest
             </ul>
         </div>
-        <a href="#">
+        <a href="{{route('SubjectCategory')}}">
             <i class="fas fa-book-open"></i>
             คอร์ส
         </a>

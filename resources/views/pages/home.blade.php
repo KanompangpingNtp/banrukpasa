@@ -5,7 +5,7 @@
         .bg-home {
             background: url('{{ asset('home/Bg.png') }}') no-repeat center center;
             background-size: cover;
-            min-height: 85.2vh;
+            min-height: 90vh;
             padding: 2rem 2rem 2rem 2rem;
         }
 
@@ -139,9 +139,9 @@
                     </div>
 
                     <!-- Right image -->
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-6 text-center px-0">
                         <!-- รูปภาพแบนเนอร์ -->
-                        <img src="{{ asset('home/ป้ายโปรโมชั่น.png') }}" alt="Banner Placeholder" class="img-fluid"
+                        <img src="{{ asset('home/ปกFacebook.png') }}" alt="Banner Placeholder" class="img-fluid"
                             style="max-height: 400px;">
                         <!-- ใส่ path รูปภายหลัง -->
                     </div>
