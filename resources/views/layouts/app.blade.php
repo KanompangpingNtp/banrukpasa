@@ -198,7 +198,7 @@
                 <img src="{{ asset('navbar/Logo_Banrukpasa2.jpg') }}" alt="Logo" class="logo-img me-2">
                 <div class="d-flex flex-column">
                     <div class="project-title" style="color:#02249e; "">BANRUKPASA</div>
-                    <div class="project-subtitle" style="color:#d61180; letter-spacing: 0.05em;"">Study online h <img src="{{asset('navbar/smile.png')}}" alt="smile"> ppily</div>
+                    <div class="project-subtitle" ">ระบบจองรายคอร์สเรียนพิเศษ</div>
                 </div>
 
             </a>
