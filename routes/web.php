@@ -73,7 +73,7 @@ Route::middleware(['auth', 'check.level:1'])->group(function () {
 
     Route::get('/admin/subject_users', [SubjectUsersController::class, 'SubjectUsersPage'])->name('SubjectUsersPage');
     Route::post('/admin/subject_users/create', [SubjectUsersController::class, 'SubjectUsersCreate'])->name('SubjectUsersCreate');
-    Route::delete('/admin/subject_users/delete/{id}/', [SubjectUsersController::class, 'SubjectUsersDelete'])->name('SubjectUsersDelete');
+    Route::delete('/admin/subject_users/delete/{userId}/{subjectId}', [SubjectUsersController::class, 'SubjectUsersDelete'])->name('SubjectUsersDelete');
     Route::post('/admin/subject_users/update/{id}', [SubjectUsersController::class, 'SubjectUsersUpdate'])->name('SubjectUsersUpdate');
 
     Route::get('/admin/courses_offered', [CoursesOfferedController::class, 'CoursesOfferedPage'])->name('CoursesOfferedPage');
