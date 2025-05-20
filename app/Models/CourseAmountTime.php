@@ -12,6 +12,7 @@ class CourseAmountTime extends Model
     protected $fillable = [
         'course_id',
         'amount_time_hour',
+        'price'
     ];
 
     public function course()

@@ -180,7 +180,7 @@
                                     <select id="amount_times" name="amount_times" class="form-control" required>
                                         <option value="">-- เลือกจำนวนชั่วโมง --</option>
                                         @foreach($courses->amountTimes as $amount)
-                                        <option value="{{ $amount->amount_time_hour }}">{{ $amount->amount_time_hour }} ชั่วโมง</option>
+                                        <option value="{{ $amount->amount_time_hour }}">{{ $amount->amount_time_hour }} ชั่วโมง {{ $amount->price }} บาท</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -196,7 +196,7 @@
                                     </select>
                                 </div>
 
-                                <p>ราคาคอร์ส : {{$courses->price}} บาท</p>
+                                {{-- <p>ราคาคอร์ส : {{$courses->price}} บาท</p> --}}
 
                                 <div class="mb-4">
                                     <p><strong>บัญชี : นางสาวเพ็ญศรี ราชคม</strong> <br><br>

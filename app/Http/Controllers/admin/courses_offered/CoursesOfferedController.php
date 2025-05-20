@@ -73,7 +73,10 @@ class CoursesOfferedController extends Controller
             'amount_time_hour' => 'nullable|array',
             'amount_time_hour.*' => 'nullable|string|max:255',
 
-            'price' => 'required|numeric|min:0',
+            'amount_time_price' => 'required|array',
+            'amount_time_price.*' => 'required|numeric|min:0',
+
+            // 'price' => 'required|numeric|min:0',
         ]);
 
         $course = Course::create([
@@ -85,16 +88,29 @@ class CoursesOfferedController extends Controller
             'price' => $request->price,
         ]);
 
+        // if ($request->has('amount_time_hour')) {
+        //     foreach ($request->amount_time_hour as $amountHour) {
+        //         if (!empty($amountHour)) {
+        //             CourseAmountTime::create([
+        //                 'course_id' => $course->id,
+        //                 'amount_time_hour' => $amountHour,
+        //             ]);
+        //         }
+        //     }
+        // }
+
         if ($request->has('amount_time_hour')) {
-            foreach ($request->amount_time_hour as $amountHour) {
+            foreach ($request->amount_time_hour as $index => $amountHour) {
                 if (!empty($amountHour)) {
                     CourseAmountTime::create([
                         'course_id' => $course->id,
                         'amount_time_hour' => $amountHour,
+                        'price' => $request->amount_time_price[$index] ?? 0,
                     ]);
                 }
             }
         }
+
 
         for ($i = 0; $i < count($request->course_day_id); $i++) {
             CourseTeaching::create([
@@ -161,10 +177,31 @@ class CoursesOfferedController extends Controller
             'course_name' => $request->course_name,
             'course_details' => $request->course_details,
             'course_duration_hour' => $request->course_duration_hour,
-            'price' => $request->price,
+            // 'price' => $request->price,
         ]);
 
         // อัปเดต/เพิ่ม/ลบข้อมูล CourseAmountTime
+        // $existingIds = collect($request->amount_time_hour_id)->filter()->all();
+
+        // CourseAmountTime::where('course_id', $course->id)
+        //     ->whereNotIn('id', $existingIds)
+        //     ->delete();
+
+        // foreach ($request->amount_time_hour as $i => $hour) {
+        //     $id = $request->amount_time_hour_id[$i] ?? null;
+
+        //     if ($id) {
+        //         CourseAmountTime::where('id', $id)->update([
+        //             'amount_time_hour' => $hour,
+        //         ]);
+        //     } else {
+        //         CourseAmountTime::create([
+        //             'course_id' => $course->id,
+        //             'amount_time_hour' => $hour,
+        //         ]);
+        //     }
+        // }
+
         $existingIds = collect($request->amount_time_hour_id)->filter()->all();
 
         CourseAmountTime::where('course_id', $course->id)
@@ -173,15 +210,18 @@ class CoursesOfferedController extends Controller
 
         foreach ($request->amount_time_hour as $i => $hour) {
             $id = $request->amount_time_hour_id[$i] ?? null;
+            $price = $request->amount_time_price[$i] ?? 0;
 
             if ($id) {
                 CourseAmountTime::where('id', $id)->update([
                     'amount_time_hour' => $hour,
+                    'price' => $price,
                 ]);
             } else {
                 CourseAmountTime::create([
                     'course_id' => $course->id,
                     'amount_time_hour' => $hour,
+                    'price' => $price,
                 ]);
             }
         }
