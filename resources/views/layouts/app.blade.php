@@ -192,10 +192,10 @@
     {{-- Top Navbar: แสดงเฉพาะบน desktop --}}
     <nav class="navbar navbar-expand-lg navbar-dark  p-0">
         <div class="container">
-            <a class="navbar-brand text-dark d-flex  align-items-center" href="{{route('Home')}}">
+            <a class="navbar-brand text-dark d-flex  align-items-center" href="{{ route('Home') }}">
                 <img src="{{ asset('navbar/Logo_Banrukpasa2.jpg') }}" alt="Logo" class="logo-img me-2">
                 <div class="d-flex flex-column">
-                    <div class="project-title" style="color:#02249e;">BANRUKPASA</div>
+                    <div class="project-title" style="color:#02249e; ">BANRUKPASA</div>
                     <div class="project-subtitle">ระบบจองรายคอร์สเรียนพิเศษ</div>
                 </div>
 
@@ -219,9 +219,11 @@
                                     : asset('navbar/user-unknow.png');
                             @endphp
 
-    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
-        <img src="{{ $profileImage }}" alt="avatar" class="rounded-circle me-2 bg-white profile-shadow" style="width: 5rem;">
-    </a>
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                                data-bs-toggle="dropdown">
+                                <img src="{{ $profileImage }}" alt="avatar"
+                                    class="rounded-circle me-2 bg-white profile-shadow" style="width: 5rem;">
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('Profile') }}">โปรไฟล์</a></li>
                                 <li><a class="dropdown-item" href="{{ route('UsersAccount') }}">ประวัติการจองคอร์ส</a></li>
@@ -250,9 +252,19 @@
             หน้าหลัก
         </a>
         <div class="dropdown-center " style="margin-top: -4rem">
-            <a class="nav-link d-flex align-items-center " href="#" role="button" data-bs-toggle="dropdown">
-                <img src="{{ asset('navbar/user-unknow.png') }}" alt="avatar" class="rounded-circle me-2 bg-white profile-shadow" style="width: 6.5rem;">
+            @php
+                $profileImage =
+                    Auth::check() && Auth::user()->profile_image
+                        ? asset('storage/' . Auth::user()->profile_image)
+                        : asset('navbar/user-unknow.png');
+            @endphp
+
+            <a class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+                <img src="{{ $profileImage }}" alt="avatar" class="rounded-circle me-2 bg-white profile-shadow"
+                    style="width: 6.5rem;">
             </a>
+
+
             <ul class="dropdown-menu dropdown-menu-center ">
                 @auth
                     <li><a class="dropdown-item" href="{{ route('UsersAccount') }}">โปรไฟล์ของฉัน</a></li>
