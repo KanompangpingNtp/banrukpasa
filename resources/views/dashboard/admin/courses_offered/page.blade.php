@@ -161,7 +161,7 @@
                                 <h6 class="mt-4">จำนวนชั่วโมงที่เปิดสอน</h6>
                                 <ul>
                                     @foreach($course->amountTimes as $amountTime)
-                                    <li>{{ $amountTime->amount_time_hour }} ชั่วโมง</li>
+                                    <li>{{ $amountTime->amount_time_hour }} ชั่วโมง {{ $amountTime->price }} บาท</li>
                                     @endforeach
                                 </ul>
                                 @endif
