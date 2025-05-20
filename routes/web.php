@@ -18,7 +18,7 @@ use App\Http\Controllers\tutor\courses_offered\TutorCoursesOfferedController;
 use App\Http\Controllers\tutor\teaching_schedule\TeachingScheduleController;
 use App\Http\Controllers\tutor\teaching_history\TeachingHistoryController;
 
-use App\Http\Controllers\users\subject_category\SubjectCategoryController;
+use App\Http\Controllers\users\ProfileController;
 use App\Http\Controllers\users\course\CourseController;
 use App\Http\Controllers\users\account\UsersController;
 
@@ -124,4 +124,8 @@ Route::middleware(['auth', 'check.level:3'])->group(function () {
     Route::post('/course_bookings/create', [CourseController::class, 'BookingCreate'])->name('BookingCreate');
 
     Route::get('/users/account/teaching_schedule/{id}', [UsersController::class, 'UserTeachingSchedule'])->name('UserTeachingSchedule');
+
+    Route::get('/users/account/profile', [ProfileController::class, 'Profile'])->name('Profile');
+    Route::put('/user/profile/update/{id}', [ProfileController::class, 'updateProfile'])->name('UserProfileUpdate');
+
 });

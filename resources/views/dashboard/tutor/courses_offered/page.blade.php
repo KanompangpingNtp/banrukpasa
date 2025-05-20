@@ -45,7 +45,7 @@
 
                                     <a href="{{route('TutorCoursesOfferedUpdatePage',$course->id)}}" class="btn btn-warning btn-sm me-1"> <i class='bx bx-edit'></i></a>
 
-                                    <form action="{{ route('deleteCourse', $course->id) }}" method="POST" onsubmit="return confirm('คุณแน่ใจว่าต้องการลบหรือไม่?')">
+                                    <form action="{{ route('TutordeleteCourse', $course->id) }}" method="POST" onsubmit="return confirm('คุณแน่ใจว่าต้องการลบหรือไม่?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm me-1">
@@ -158,7 +158,7 @@
                                 <h6 class="mt-4">จำนวนชั่วโมงที่เปิดสอน</h6>
                                 <ul>
                                     @foreach($course->amountTimes as $amountTime)
-                                    <li>{{ $amountTime->amount_time_hour }} ชั่วโมง</li>
+                                    <li>{{ $amountTime->amount_time_hour }} ชั่วโมง {{ $amountTime->price }} บาท</li>
                                     @endforeach
                                 </ul>
                                 @endif

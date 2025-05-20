@@ -181,27 +181,6 @@ class CoursesOfferedController extends Controller
         ]);
 
         // อัปเดต/เพิ่ม/ลบข้อมูล CourseAmountTime
-        // $existingIds = collect($request->amount_time_hour_id)->filter()->all();
-
-        // CourseAmountTime::where('course_id', $course->id)
-        //     ->whereNotIn('id', $existingIds)
-        //     ->delete();
-
-        // foreach ($request->amount_time_hour as $i => $hour) {
-        //     $id = $request->amount_time_hour_id[$i] ?? null;
-
-        //     if ($id) {
-        //         CourseAmountTime::where('id', $id)->update([
-        //             'amount_time_hour' => $hour,
-        //         ]);
-        //     } else {
-        //         CourseAmountTime::create([
-        //             'course_id' => $course->id,
-        //             'amount_time_hour' => $hour,
-        //         ]);
-        //     }
-        // }
-
         $existingIds = collect($request->amount_time_hour_id)->filter()->all();
 
         CourseAmountTime::where('course_id', $course->id)
