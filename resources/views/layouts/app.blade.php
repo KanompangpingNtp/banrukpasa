@@ -131,6 +131,7 @@
     .project-title {
         font-size: 45px;
         font-weight: bold;
+        letter-spacing: 0.1em;
     }
 
     .project-subtitle {
@@ -147,6 +148,7 @@
 
         .project-title {
             font-size: 34px;
+            letter-spacing: 0em;
         }
 
         .project-subtitle {
@@ -195,8 +197,8 @@
             <a class="navbar-brand text-dark d-flex  align-items-center" href="#">
                 <img src="{{ asset('navbar/Logo_Banrukpasa2.jpg') }}" alt="Logo" class="logo-img me-2">
                 <div class="d-flex flex-column">
-                    <div class="project-title">โปรเจ็คติวเตอร์</div>
-                    <div class="project-subtitle">ระบบจองรายคอร์สเรียนพิเศษ</div>
+                    <div class="project-title" style="color:#02249e; "">BANRUKPASA</div>
+                    <div class="project-subtitle" ">ระบบจองรายคอร์สเรียนพิเศษ</div>
                 </div>
 
             </a>
