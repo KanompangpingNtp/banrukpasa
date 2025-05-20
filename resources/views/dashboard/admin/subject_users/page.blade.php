@@ -31,7 +31,8 @@
                                                 @foreach ($users as $user)
                                                     @if ($user->level == 2)
                                                         <option value="{{ $user->id }}">{{ $user->name }}
-                                                            ({{ $user->email }})</option>
+                                                            ({{ $user->email }})
+                                                        </option>
                                                     @endif
                                                 @endforeach
                                             </select>
@@ -94,7 +95,6 @@
                                                     <i class='bx bx-trash'></i>
                                                 </button>
                                             </form>
-
                                         </div>
                                     </td>
                                 </tr>
