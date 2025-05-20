@@ -50,6 +50,7 @@
                 @endforeach
 
             </div> --}}
+
                 <style>
                     .table td:hover {
                         background-color: #53b2e6;
@@ -75,15 +76,18 @@
                         background-color: #ffffff;
                     }
 
-                    a {
-                        text-decoration: none;
+                    .clickable {
                         color: #333;
-                        display: block;
+                        cursor: pointer;
+                        text-decoration: none;
+                        display: inline-block;
                         width: 100%;
                     }
 
-                    a:hover {
+                    .clickable:hover {
                         color: white;
+                        background-color: #53b2e6;
+                        /* หรือสีอื่นตามต้องการ */
                     }
                 </style>
 
@@ -91,15 +95,14 @@
                     @foreach ($subjects as $subject)
                         <tr>
                             <td>
-                                <a href="{{route('CoursePage',$subject->id)}}">
-                                    <i class="bi bi-folder-fill"></i> {{$subject->name}}
-                                </a>
+                                <div onclick="window.location='{{ route('CoursePage', $subject->id) }}'"
+                                    style="cursor:pointer; color:#333;">
+                                    <i class="bi bi-folder-fill"></i> {{ $subject->name }}
+                                </div>
                             </td>
                         </tr>
                     @endforeach
                 </table>
-
-
             </div>
         </div>
 
