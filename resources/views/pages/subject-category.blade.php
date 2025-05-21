@@ -35,7 +35,6 @@
     <body>
         <div class="bg-home d-flex align-items-start justify-content-center">
             <div class="container py-5">
-                <!-- หัวข้อหลัก -->
                 <h1 class="text-center fw-bold mb-5">หมวดวิชาที่สนใจ</h1>
 
                 <!-- ตารางหมวดหมู่ -->
@@ -87,7 +86,6 @@
                     .clickable:hover {
                         color: white;
                         background-color: #53b2e6;
-                        /* หรือสีอื่นตามต้องการ */
                     }
                 </style>
 
@@ -103,6 +101,7 @@
                         </tr>
                     @endforeach
                 </table>
+
             </div>
         </div>
 
